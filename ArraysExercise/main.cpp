@@ -52,5 +52,19 @@ int main(int argc, const char * argv[]) {
     
     cout << "Index of max row: " << indexOfRowWithBiggestSum(matrix, SSIZE) << endl;
     
+    const int biggerSize = 3;
+    int mat[biggerSize][4] = {{1, 0, 3, 5}, {0, 0, 0, 7}, {1, 0, 1, 0}};
+    
+    moveZeroesBottomRight(mat, biggerSize);
+    
+    for(int i=0; i < biggerSize; ++i)
+    {
+        for(int j=0; j < 4; ++j)
+        {
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
     return 0;
 }

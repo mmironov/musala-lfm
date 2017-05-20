@@ -99,4 +99,73 @@ int indexOfRowWithBiggestSum(int matrix[][3], int n)
     return indexMax;
 }
 
+void moveZeroesRight(int matrix[][4], int n)
+{
+    for(int row=0; row < n; ++row)
+    {
+        for(int col=0; col < 4; ++col)
+        {
+            if (matrix[row][col] != 0)
+            {
+                continue;
+            }
+            
+            //If we are here, matrix[row][col] == 0
+            int firstNonZero = col;
+            
+            while (firstNonZero < 4 && matrix[row][firstNonZero] == 0)
+            {
+                ++firstNonZero;
+            }
+            
+            //If we are here, matrix[row][firstNonZero] != 0
+            //or firstNonZero >= 4
+            
+            if (firstNonZero < 4)
+            {
+                matrix[row][col] = matrix[row][firstNonZero];
+                matrix[row][firstNonZero] = 0;
+            }
+        }
+    }
+}
+
+void moveZeroesBottom(int matrix[][4], int n)
+{
+    for(int col=0; col < 4; ++col)
+    {
+        for(int row=0; row < n; ++row)
+        {
+            if (matrix[row][col] != 0)
+            {
+                continue;
+            }
+            
+            //If we are here, matrix[row][col] == 0
+            int firstNonZero = row;
+            
+            while (firstNonZero < n && matrix[firstNonZero][col] == 0)
+            {
+                ++firstNonZero;
+            }
+            
+            //If we are here, matrix[firstNonZero][col] != 0
+            //or firstNonZero >= n
+            
+            if (firstNonZero < n)
+            {
+                matrix[row][col] = matrix[firstNonZero][col];
+                matrix[firstNonZero][col] = 0;
+            }
+        }
+    }
+
+}
+
+void moveZeroesBottomRight(int matrix[][4], int n)
+{
+    moveZeroesRight(matrix, n);
+    moveZeroesBottom(matrix, n);
+}
+
 #endif /* matrices_h */
