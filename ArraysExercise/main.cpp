@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 void useTemperatureCalculator();
@@ -167,12 +168,181 @@ void findPropertiesForArray()
     cout << "Is zigzagged: " << zigZagged << endl;
 }
 
+bool isPrime(int n)
+{
+    if (n == 1)
+    {
+        return false;
+    }
+    
+    for(int i = 2; i <= n/2; ++i)
+    {
+        if (n % i == 0)
+        {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+void printPrimesBelow(int n)
+{
+    for(int i=2; i <= n; ++i)
+    {
+        if (isPrime(i))
+        {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
+}
+
+void countLetters(char word[], int n)
+{
+    const int LETTERS_COUNT = 26;
+    int counts[LETTERS_COUNT] = {0};
+    
+//    for(char alpha = 'A'; alpha < 'Z'; ++alpha)
+//    {
+//        for(int i=0; i < n; ++i)
+//        {
+//            if (word[i] == alpha)
+//            {
+//                ++counts[alpha - 'A'];
+//            }
+//        }
+//    }
+    
+    
+    for(int i=0; i < n; ++i)
+    {
+        char alpha = word[i];
+        
+        ++counts[alpha - 'A'];
+    }
+    
+    for(int i=0; i < LETTERS_COUNT; ++i)
+    {
+        if (counts[i] != 0)
+        {
+            cout << (char)(i + 'A') << ": " << counts[i] << endl;
+        }
+    }
+}
+
+bool cointainsDuplicatesInSorted(int arr[], int n)
+{
+    for(int i=1; i < n; ++i)
+    {
+        if (arr[i-1] == arr[i])
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+bool cointainsDuplicates(int arr[], int n)
+{
+    for(int i=0; i < n-1; ++i)
+    {
+        for(int j = i+1; j < n; ++j)
+        {
+            if (arr[i] == arr[j])
+            {
+                return true;
+            }
+        }
+    }
+    
+    return false;
+}
+
+void printDuplicates(int arr[], int n)
+{
+    for(int i=0; i < n-1; ++i)
+    {
+        for(int j = i+1; j < n; ++j)
+        {
+            if (arr[i] == arr[j])
+            {
+                bool alreadyCounted = false;
+                for(int k=i-1; k >= 0; --k)
+                {
+                    if (arr[k] == arr[i])
+                    {
+                        alreadyCounted = true;
+                        break;
+                    }
+                }
+                
+                if (!alreadyCounted) {
+                    cout << arr[i] << " ";
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void printDuplicatesWithCounting(int arr[], int n)
+{
+    int count = 0;
+    
+    for(int i=0; i < n-1; ++i)
+    {
+        count = 1;
+        for(int j = i+1; j < n; ++j)
+        {
+            if (arr[i] == arr[j])
+            {
+                ++count;
+            }
+        }
+        
+        if (count == 2)
+        {
+            cout << arr[i] << " ";
+        }
+    }
+}
+
+bool eq(double d1, double d2, double eps = 0.000000001)
+{
+    return abs(d1 - d2) < eps;
+}
+
 int main(int argc, const char * argv[]) {
     
 //    useTemperatureCalculator();
 //    printPositiveNumbers();
 //    findLongestDuplicate();
-    findPropertiesForArray();
+//    findPropertiesForArray();
+    
+//    cout << isPrime(131) << endl;
 
+//    printPrimesBelow(1000000);
+    
+//    const int SIZE = 5;
+//    char word[SIZE] = {'H', 'E', 'L', 'L', 'O'};
+//    
+//    countLetters(word, SIZE);
+//    
+    double d1 = 4.99999;
+    double d2 = 4.99998;
+    
+    if (eq(d1, d2, 0.01))
+    {
+        cout << "equal" << endl;
+    }
+    
+    const int N = 7;
+    int numbers[N] = {1, 2, 3, 4, 5, 6, 7};
+    
+    printDuplicatesWithCounting(numbers, N);
+    cout << endl;
+    
     return 0;
 }
