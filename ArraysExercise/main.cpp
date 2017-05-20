@@ -314,6 +314,31 @@ bool eq(double d1, double d2, double eps = 0.000000001)
     return abs(d1 - d2) < eps;
 }
 
+double sqrt(double x, double eps)
+{
+    double low = 0;
+    double high = x;
+    
+    double mid = x/2;
+    
+    while (!eq(mid*mid, x, eps))
+    {
+        if (mid*mid > x)
+        {
+            high = mid;
+        }
+        
+        if (mid*mid < x)
+        {
+            low = mid;
+        }
+        
+        mid = (high + low) / 2;
+    }
+    
+    return mid;
+}
+
 int main(int argc, const char * argv[]) {
     
 //    useTemperatureCalculator();
@@ -343,6 +368,9 @@ int main(int argc, const char * argv[]) {
     
     printDuplicatesWithCounting(numbers, N);
     cout << endl;
+    
+    double d = 20;
+    cout << "sqrt(" << d << ") = " << sqrt(d, 0.0001) << endl;
     
     return 0;
 }
