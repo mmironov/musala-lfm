@@ -50,5 +50,7 @@ int main(int argc, const char * argv[]) {
     
     printSumInEveryRow(matrix, SSIZE);
     
+    cout << "Index of max row: " << indexOfRowWithBiggestSum(matrix, SSIZE) << endl;
+    
     return 0;
 }
