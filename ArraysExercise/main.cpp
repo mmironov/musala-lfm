@@ -8,6 +8,8 @@
 
 #include "arrays.h"
 #include "matrices.h"
+#include "functions.h"
+#include "strings.h"
 
 int main(int argc, const char * argv[]) {
 //    
@@ -42,29 +44,46 @@ int main(int argc, const char * argv[]) {
 //    double d = 20;
 //    cout << "sqrt(" << d << ") = " << sqrt(d, 0.0001) << endl;
 
-    const int SSIZE = 2;
-    int matrix[SSIZE][3] = {{1, 2, 3}, {4, 5, 6}};
+//    const int SSIZE = 2;
+//    int matrix[SSIZE][3] = {{1, 2, 3}, {4, 5, 6}};
+//    
+//    printMatrixByColumns(matrix, SSIZE);
+//    cout << sumAll(matrix, SSIZE) << endl;
+//    
+//    printSumInEveryRow(matrix, SSIZE);
+//    
+//    cout << "Index of max row: " << indexOfRowWithBiggestSum(matrix, SSIZE) << endl;
+//    
+//    const int biggerSize = 3;
+//    int mat[biggerSize][4] = {{1, 0, 3, 5}, {0, 0, 0, 7}, {1, 0, 1, 0}};
+//    
+//    moveZeroesBottomRight(mat, biggerSize);
+//    
+//    for(int i=0; i < biggerSize; ++i)
+//    {
+//        for(int j=0; j < 4; ++j)
+//        {
+//            cout << mat[i][j] << " ";
+//        }
+//        cout << endl;
+//    }
+
+//    int a = 10;
+//    int b = 20;
+//    
+//    swap(a, b);
+//    
+//    cout << "a: " << a << endl << "b: " << b << endl;
+//    
+//    int& c = a;
+//    
+//    a = 100;
+//    
+//    cout << "c: " << c << endl;
     
-    printMatrixByColumns(matrix, SSIZE);
-    cout << sumAll(matrix, SSIZE) << endl;
+//    basicStrings();
     
-    printSumInEveryRow(matrix, SSIZE);
-    
-    cout << "Index of max row: " << indexOfRowWithBiggestSum(matrix, SSIZE) << endl;
-    
-    const int biggerSize = 3;
-    int mat[biggerSize][4] = {{1, 0, 3, 5}, {0, 0, 0, 7}, {1, 0, 1, 0}};
-    
-    moveZeroesBottomRight(mat, biggerSize);
-    
-    for(int i=0; i < biggerSize; ++i)
-    {
-        for(int j=0; j < 4; ++j)
-        {
-            cout << mat[i][j] << " ";
-        }
-        cout << endl;
-    }
+    testComparison();
     
     return 0;
 }
