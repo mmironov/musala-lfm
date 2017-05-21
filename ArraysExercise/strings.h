@@ -170,41 +170,88 @@ void outputPrefix(char str1[], char str2[])
     cout << "isPrefix(" << str1 << ", " << str2 << ") = " << prefixResult << endl;
 }
 
+bool testSubstring(char* firsts[], char* seconds[], int expected[], int count)
+{
+    int successfulTests = 0;
+    
+    for(int i=0; i < count; ++i)
+    {
+        char* first = firsts[i];
+        char* second = seconds[i];
+        
+        int actual = substr(first, second);
+        
+        bool success = actual == expected[i];
+        
+        if (success)
+        {
+            ++successfulTests;
+        }
+        else
+        {
+            cout << "Test " << i << " failed. Expected is " << expected[i]
+            << " but actual was " << actual << "." << endl;
+        }
+    }
+    
+    bool allSuccessful = successfulTests >= count;
+    
+    if (allSuccessful)
+    {
+        cout << "SUCESS!" << endl;
+    }
+    else
+    {
+        cout << "FAILURE!" << endl;
+    }
+    
+    cout << "Tests: " << successfulTests << "/" << count << endl;
+    
+    return allSuccessful;
+}
+
 void testComparison()
 {
-    char hello[] = "hello";
-    char world[] = "world";
-    char height[] = "height";
-    char heightheight[] = "heightheight";
-    char helloo[] = "helloo";
-    char empty[] = "";
-    char space[] = " ";
+//    char hello[] = "hello";
+//    char world[] = "world";
+//    char height[] = "height";
+//    char heightheight[] = "heightheight";
+//    char helloo[] = "helloo";
+//    char empty[] = "";
+//    char space[] = " ";
+//    
+//    outputCmp(hello, height);
+//    outputCmp(height, hello);
+//    outputCmp("Miro", "Miroslav");
+//    outputCmp(hello, hello);
+//    outputCmp(empty, empty);
+//    outputCmp(empty, hello);
+//    outputCmp(space, empty);
+//    outputCmp(empty, space);
+//    outputCmp(height, heightheight);
+//    outputCmp(world, helloo);
+//    
+//    outputSubstring("ei", "height");
+//    outputSubstring("hello", "abc");
+//    outputSubstring("string", "This is a string");
+//    outputSubstring("string", "string");
+//    outputSubstring("", "hello");
+//    outputSubstring("hello", "");
+
+    char* firsts[] = {"ei", "hello", "string", "string", "", "hello", "I"};
+    char* seconds[] = {"height", "abc", "This is a string", "string", "hello", "", "I am"};
+    int expected[] = {1, -1, 10, 0, 0, -1, 0};
+    int count = 7;
     
-    outputCmp(hello, height);
-    outputCmp(height, hello);
-    outputCmp("Miro", "Miroslav");
-    outputCmp(hello, hello);
-    outputCmp(empty, empty);
-    outputCmp(empty, hello);
-    outputCmp(space, empty);
-    outputCmp(empty, space);
-    outputCmp(height, heightheight);
-    outputCmp(world, helloo);
+    testSubstring(firsts, seconds, expected, count);
     
-    outputSubstring("ei", "height");
-    outputSubstring("hello", "abc");
-    outputSubstring("string", "This is a string");
-    outputSubstring("string", "string");
-    outputSubstring("", "hello");
-    outputSubstring("hello", "");
-    
-    outputPrefix("hello", "hello world");
-    outputPrefix("or", "world");
-    outputPrefix("", "prefix");
-    outputPrefix("", "");
-    
-    char str[] = "This is a string.";
-    cout << str + 5 << endl;
+//    outputPrefix("hello", "hello world");
+//    outputPrefix("or", "world");
+//    outputPrefix("", "prefix");
+//    outputPrefix("", "");
+//    
+//    char str[] = "This is a string.";
+//    cout << str + 5 << endl;
 }
 
 #endif /* strings_h */
