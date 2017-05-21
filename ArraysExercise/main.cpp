@@ -10,6 +10,7 @@
 #include "matrices.h"
 #include "functions.h"
 #include "strings.h"
+#include "builtin_functions.h"
 
 int main(int argc, const char * argv[]) {
 //    
@@ -83,7 +84,9 @@ int main(int argc, const char * argv[]) {
     
 //    basicStrings();
     
-    testComparison();
+//    testComparison();
+    
+    testBuiltInFunctions();
     
     return 0;
 }
