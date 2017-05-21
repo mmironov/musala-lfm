@@ -30,6 +30,7 @@
 		F43345951ED16F16001A5941 /* functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
 		F43345961ED172EE001A5941 /* strings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = strings.h; sourceTree = "<group>"; };
 		F43345971ED1C0F9001A5941 /* builtin_functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = builtin_functions.h; sourceTree = "<group>"; };
+		F43345981ED1CC98001A5941 /* recursion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = recursion.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				F43345951ED16F16001A5941 /* functions.h */,
 				F43345961ED172EE001A5941 /* strings.h */,
 				F43345971ED1C0F9001A5941 /* builtin_functions.h */,
+				F43345981ED1CC98001A5941 /* recursion.h */,
 			);
 			path = ArraysExercise;
 			sourceTree = "<group>";

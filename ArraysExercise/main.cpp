@@ -11,6 +11,7 @@
 #include "functions.h"
 #include "strings.h"
 #include "builtin_functions.h"
+#include "recursion.h"
 
 int main(int argc, const char * argv[]) {
 //    
@@ -86,7 +87,9 @@ int main(int argc, const char * argv[]) {
     
 //    testComparison();
     
-    testBuiltInFunctions();
+//    testBuiltInFunctions();
+    
+    testRecursion();
     
     return 0;
 }
