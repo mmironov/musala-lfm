@@ -99,6 +99,7 @@ int indexOfRowWithBiggestSum(int matrix[][3], int n)
     return indexMax;
 }
 
+//Moves all the zeroes to the right of each row
 void moveZeroesRight(int matrix[][4], int n)
 {
     for(int row=0; row < n; ++row)
@@ -130,6 +131,7 @@ void moveZeroesRight(int matrix[][4], int n)
     }
 }
 
+//Moves all the zeroes to the bottom of each column
 void moveZeroesBottom(int matrix[][4], int n)
 {
     for(int col=0; col < 4; ++col)

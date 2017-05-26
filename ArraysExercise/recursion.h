@@ -9,6 +9,7 @@
 #ifndef recursion_h
 #define recursion_h
 
+//Computes factorial of n
 int fact(int n)
 {
     if (n == 0)
@@ -19,6 +20,7 @@ int fact(int n)
     return n * fact(n-1);
 }
 
+//Computes factorial of n
 int iter_fact(int n)
 {
     int fact = 1;
@@ -31,6 +33,7 @@ int iter_fact(int n)
     return fact;
 }
 
+//Computes factorial of n
 int iter_fact_helper(int i, int res)
 {
     if (i == 1)
@@ -41,13 +44,15 @@ int iter_fact_helper(int i, int res)
     return iter_fact_helper(i - 1, res * i);
 }
 
+//Computes factorial of n
 int fact_with_helper(int n)
 {
     int result = iter_fact_helper(n, 1);
     return result;
 }
 
-bool isPrefix(char small[], char big[])
+//Checks whether big starts with small
+bool isPrefixRecursive(char small[], char big[])
 {
     if (strlen(small) > 0)
     {
@@ -55,7 +60,7 @@ bool isPrefix(char small[], char big[])
         {
             bool firstChars = small[0] == big[0];
             
-            return firstChars && isPrefix(small + 1, big + 1);
+            return firstChars && isPrefixRecursive(small + 1, big + 1);
         }
         else
         {
@@ -68,6 +73,7 @@ bool isPrefix(char small[], char big[])
     }
 }
 
+//Test for isPrefix
 bool isPrefixTest(char* firsts[], char* seconds[], int expected[], int counT)
 {
     int successfulTests = 0;
@@ -75,7 +81,7 @@ bool isPrefixTest(char* firsts[], char* seconds[], int expected[], int counT)
     {
         char* first = firsts[i];
         char* second = seconds[i];
-        bool actual = isPrefix(first,second);
+        bool actual = isPrefixRecursive(first,second);
         bool success = actual == expected[i];
         if(success)
         {
@@ -98,6 +104,7 @@ bool isPrefixTest(char* firsts[], char* seconds[], int expected[], int counT)
     return allSuccessful;
 }
 
+//Counts how many times sentence contains word
 int countWord(char word[], char sentence[])
 {
     if (strlen(sentence) >= strlen(word))
@@ -120,6 +127,7 @@ int countWord(char word[], char sentence[])
     }
 }
 
+//Computes the sum of the numbers in arr
 int sum(int arr[], int n)
 {
     if (n == 1)
