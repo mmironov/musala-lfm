@@ -155,13 +155,13 @@ int replaceLetter(char* str, char oldChar, char newChar)
     return count;
 }
 
-void replaceFrom(char* str, char* newStr, int oldLength)
+void replaceFrom(char* str, char* newStr, int howMany)
 {
     for(int i=0; i < strlen(newStr); ++ i) {
         str[i] = newStr[i];
     }
     
-    int offset = oldLength - strlen(newStr);
+    int offset = howMany - strlen(newStr);
     
     if (offset > 0) {
         for(int i = strlen(newStr); i <= strlen(str) - offset; ++ i)
@@ -180,8 +180,8 @@ int replaceSubstring(char* str, char* oldStr, char* newStr)
     
     if (index > -1)
     {
-        ++count;
         replaceFrom(str + index, newStr, strlen(oldStr));
+        ++count;
         
         replaced = replaceSubstring(str + index + strlen(newStr), oldStr, newStr);
     }
