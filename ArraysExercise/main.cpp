@@ -84,13 +84,13 @@ int main(int argc, const char * argv[]) {
 //    
 //    cout << "c: " << c << endl;
     
-//    basicStrings();
+    basicStrings();
     
 //    testComparison();
     
 //    testBuiltInFunctions();
     
-    testRecursion();
+//    testRecursion();
     
 //    testPointers();
     

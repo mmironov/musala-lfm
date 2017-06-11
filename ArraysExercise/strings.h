@@ -141,26 +141,83 @@ int substr2(char small[], char big[])
     return -1;
 }
 
+int replaceLetter(char* str, char oldChar, char newChar)
+{
+    int count = 0;
+    for(int i=0; i < strlen(str); ++i)
+    {
+        if (str[i] == oldChar)
+        {
+            str[i] = newChar;
+            ++count;
+        }
+    }
+    return count;
+}
+
+void replaceFrom(char* str, char* newStr, int oldLength)
+{
+    for(int i=0; i < strlen(newStr); ++ i) {
+        str[i] = newStr[i];
+    }
+    
+    int offset = oldLength - strlen(newStr);
+    
+    if (offset > 0) {
+        for(int i = strlen(newStr); i <= strlen(str) - offset; ++ i)
+        {
+            str[i] = str[i+offset];
+        }
+    }
+}
+
+int replaceSubstring(char* str, char* oldStr, char* newStr)
+{
+    int count = 0;
+    int replaced = 0;
+    
+    int index = substr(oldStr, str);
+    
+    if (index > -1)
+    {
+        ++count;
+        replaceFrom(str + index, newStr, strlen(oldStr));
+        
+        replaced = replaceSubstring(str + index + strlen(newStr), oldStr, newStr);
+    }
+    
+    return count + replaced;
+}
+
 void basicStrings()
 {
-    char word[] = "word";
+//    char word[] = "word";
+//    
+//    cout << word << endl;
+//    
+//    char word2[] = {'h', 'e', 'l', 'l', 'o', '\0'};
+//
+//    cout << word2 << endl;
+//    
+//    char name[10] = "abc";
+//    
+//    cout << endl;
+//    
+//    cout << strlen(name) << endl;
+//    
+//    strcat(name, word);
+//    
+//    cout << "Concatenated: " << name << endl;
+//    cout << strlen(name) << endl;
     
-    cout << word << endl;
+    char string[] = "Hello World";
+    int replaced = replaceLetter(string, 'o', 'X');
+    cout << "Replaced " << replaced << " characters in " << string << endl;
     
-    char word2[] = {'h', 'e', 'l', 'l', 'o', '\0'};
-
-    cout << word2 << endl;
+    char str[] = "aaaaaa";
     
-    char name[10] = "abc";
-    
-    cout << endl;
-    
-    cout << strlen(name) << endl;
-    
-    strcat(name, word);
-    
-    cout << "Concatenated: " << name << endl;
-    cout << strlen(name) << endl;
+    int count = replaceSubstring(str, "aa", "a");
+    cout << "Replaced " << count << " strings in (" << str << ")" << endl;
 }
 
 void outputCmp(char str1[], char str2[])
@@ -336,7 +393,7 @@ void testComparison()
 //    outputSubstring("string", "string");
 //    outputSubstring("", "hello");
 //    outputSubstring("hello", "");
-
+//
 //    char* firsts[] = {"ei", "hello", "string", "string", "", "hello", "I"};
 //    char* seconds[] = {"height", "abc", "This is a string", "string", "hello", "", "I am"};
 //    int expected[] = {1, -1, 10, 0, 0, -1, 0};
