@@ -12,6 +12,7 @@
 #include "strings.h"
 #include "builtin_functions.h"
 #include "recursion.h"
+#include "pointers.h"
 
 int main(int argc, const char * argv[]) {
 //    
@@ -90,6 +91,8 @@ int main(int argc, const char * argv[]) {
 //    testBuiltInFunctions();
     
     testRecursion();
+    
+//    testPointers();
     
     return 0;
 }

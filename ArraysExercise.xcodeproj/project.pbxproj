@@ -31,6 +31,7 @@
 		F43345961ED172EE001A5941 /* strings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = strings.h; sourceTree = "<group>"; };
 		F43345971ED1C0F9001A5941 /* builtin_functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = builtin_functions.h; sourceTree = "<group>"; };
 		F43345981ED1CC98001A5941 /* recursion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = recursion.h; sourceTree = "<group>"; };
+		F47DA6BE1EE04F8C00406475 /* pointers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pointers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +71,7 @@
 				F43345961ED172EE001A5941 /* strings.h */,
 				F43345971ED1C0F9001A5941 /* builtin_functions.h */,
 				F43345981ED1CC98001A5941 /* recursion.h */,
+				F47DA6BE1EE04F8C00406475 /* pointers.h */,
 			);
 			path = ArraysExercise;
 			sourceTree = "<group>";
@@ -260,6 +262,7 @@
 				F43345921ECF3CC8001A5941 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -127,6 +127,26 @@ int countWord(char word[], char sentence[])
     }
 }
 
+bool isPalindrome(char str[], int start, int end)
+{
+    if (start >= end)
+    {
+        return true;
+    }
+    
+    if (str[start] != str[end])
+    {
+        return false;
+    }
+    
+    return isPalindrome(str, start + 1, end - 1);
+}
+
+bool isPalindrome(char str[])
+{
+    return isPalindrome(str, 0, strlen(str) - 1);
+}
+
 //Computes the sum of the numbers in arr
 int sum(int arr[], int n)
 {
@@ -156,6 +176,8 @@ void testRecursion()
     isPrefixTest(strTwo, strOne, expected, counT);
     
     cout << "Count: " << countWord("hello", "hello world, hello, hello!") << endl;
+    
+    cout << "palindrome: " << isPalindrome("") << endl;
 }
 
 #endif /* recursion_h */
